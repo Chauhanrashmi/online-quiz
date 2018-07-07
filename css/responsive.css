@@ -1,0 +1,142 @@
+/*=-=-=-=-=-=-=-=-=-=-=- Mobile Responsive styles start -=-=-=-=-=-=-=-=-=-=-=*/
+@media (max-width:1366px){
+	.inner-page .banner-img{min-height:150px;}
+}
+@media (max-width:1199px){
+.navbar-nav > li{padding-left:10px;padding-right:10px;}
+.banner .banner-text h1{font-size:50px;}
+.banner .search-box{margin-top:20px;}
+.banner .learning-btn{padding-top:20px;}
+.our-course .course-box .comment-row .box{font-size:12px;padding:0 10px 0 0;}
+.our-course .course-box .course-name{font-size:22px;}
+.courses-view .product-footer .comment-box .box{padding:0 10px 0 0;}
+.banner.style2 .left-slider .slide-info{max-width:420px;}
+.newsletter-block label{font-size:28px;}
+.sign-upBox .sign-upText{bottom:20%;max-width:480px;}
+ }
+@media (max-width:991px){
+.quck-nav{display:inline-block;width:100%;}
+.navbar-brand{padding-left:0px;}
+#header .cart-box{margin-top:12px;}
+#header #nav-main{padding:28px 15px 0 15px;}
+.navbar-collapse.collapse{padding-right:0px;}
+.nav > li{padding:0 10px 31px 10px;}
+.nav > li > a{font-size:14px;line-height:40px;}
+#header .signIn-btn{padding:0 0 0 10px;}
+#header .signIn-btn .btn{font-size:14px;padding:5px 10px;}
+.banner .banner-text{position:static;}
+.banner .banner-text h1{font-size:30px;line-height:40px;}
+.banner .banner-text p{font-size:20px;line-height:30px;}
+.banner .search-box input[type="text"]{border:solid 1px #e0e0e0;border-right:none;}
+.contact-block .contact-form{width:100%;}
+.contact-block .map{position:relative;width:100%;height:500px;display:block;}
+#footer .social-media{text-align:center;}
+.our-course .course-box .comment-row .box{font-size:14px;}
+.right-slide{padding:20px 0 0 0;}
+.quiz-view .qustion-main{padding-left:0px;}
+.quiz-view .quiz-result{margin:0px;}
+ #footer .footer-top .footer-link{min-height:270px;}
+.start-learning{text-align:center;}
+.start-learning .btn{float:none;margin:10px 0 0 0;}
+.w3ls-markets-grid{margin-top:30px !important;}
+.banner.home-banner{padding:250px 0px;}
+.banner.home-banner .banner-text{position:absolute;}
+}
+@media (min-width:768px){
+.navbar-nav > li.mega-menu:hover .menu-view{display:block !important;}
+.navbar-nav > li:hover > ul{display:block !important;}
+}
+@media (max-width:767px){
+h1, .h1{font-size:35px;line-height:45px;}
+.container{padding:0 15px;}
+#header{position:static !important;background:rgba(0,0,0,0.8);}
+#header.style2{display:inline-block;width:100%;}
+.quck-nav{padding-bottom:10px;}
+#header #nav-main{padding:10px 0;}
+#header .cart-box{margin-top:0px;position:absolute;top:29px;right:70px;}
+.navbar-header{padding-top:0px;}
+.navbar-header{width:100%;max-width:100%;}
+#nav-main .navbar-brand{max-width:250px;}
+.navbar-collapse.collapse{padding:0px;}
+.nav > li{padding:0;}
+.navbar-nav > li.mega-menu{position:relative;}
+.navbar-nav > li > a{display:block;font-size:16px;}
+.navbar-nav > li > a:hover:after,.navbar-nav > li.active > a:after{background:#fe5969;}
+.navbar-nav > li > a:after{height:1px;display:block;background:#e0e0e0;}
+.navbar-nav > li.sub-menu .arrow{display:block;position:absolute;top:0px;right:0px;line-height:36px;width:40px;text-align:center;padding-top:5px;font-size:14px;cursor:pointer;}
+.navbar-nav > li > ul:after{display:none;}
+.navbar-nav > li > ul{position:static;width:100%;background:#e0e0e0;border:none;box-shadow:0px 0px 0px;}
+.navbar-nav > li > ul li{border-bottom:solid 1px #fff;}
+.navbar-nav > li > ul li:last-child{border:none;}
+#header .signIn-btn{float:none;}
+#header .signIn-btn .btn{background:none;padding-left:5px;padding-right:5px;}
+.preparation .preparation-view{padding:40px 0;}
+.courses-view .col-sm-6{text-align:center;}
+.courses-view.list-view{text-align:center;}
+.courses-view .course-post{width:100%;max-width:400px;display:inline-block;text-align:left;}
+#footer .footer-top .footer-link{padding-bottom:20px;min-height:inherit;}
+#footer .copy-right{text-align:center;}
+.login-view .col-sm-6:last-child{border:none;}
+.login-view .section-title{margin-top:30px;}
+.login-view{padding:0px;}
+.login-view .sosiyal-login{padding-top:30px;}
+.quiz-view .qustion-main{margin-top:30px;}
+.quiz-view .quiz-result{margin-top:30px;}
+ #header .search-box{position:absolute;right:70px;top:14px;margin:0px;}
+.section-title2 h2{font-size:30px;line-height:38px;}
+.graph-view{padding:30px 0;}
+.section-title h2{font-size:26px;line-height:40px;}
+.student-feedback .feedback-slider{padding-bottom:30px;}
+.our-team .member-slider{padding-bottom:30px;}
+.contact-block .contact-form{padding:30px 15px;}
+.preparation{padding:30px 0;}
+.quiz-intro{margin:20px 0 0 0;}
+.start-learning p{font-size:26px;line-height:40px;}
+.start-learning{padding:30px 0;}
+.course-details .syllabus{padding-bottom:30px;}
+.faq-page .section-title{padding-bottom:20px;}
+.btn{font-size:16px;padding:5px 15px;}
+ .section-title p{font-size:16px;line-height:24px;}
+.contact-detail .contact-box{margin-bottom:20px;display:inline-block;width:100%;max-width:300px;}
+section.banner.inner-page .page-title{bottom:inherit;top:50%;transform:translateY(-50%);}
+.our-course, .student-feedback{padding:30px 0px;}
+.our-team{padding:30px 15px;}
+.graph-view .graph-point{padding-bottom:30px;}
+.graph-view{padding-bottom:10px;}
+#footer .social-media, #footer .social-media ul li:first-child{padding:0;}
+.wapper {padding-top: 0px;}
+.banner.home-banner{padding:200px 0px;}
+.banner.home-banner .banner-text h1{font-size:25px;}
+.banner.home-banner .banner-text p{font-size:18px;}
+}
+@media (max-width:479px){
+#nav-main .navbar-brand{max-width:180px;}
+.navbar-toggle{margin-top:10px;}
+#header .cart-box{top:19px;}
+.our-team .member-info{padding-left:0px;border:none;padding-right:0px;}
+.our-team .member-info .img{position:static;margin:0 auto 15px auto;}
+#footer .footer-top .col-md-5{width:100%;}
+.student-feedback .feedback-slider .item{padding:0 30px;}
+.student-feedback .feedback-slider .owl-prev{width:30px;line-height:30px;}
+.preparation .preparation-view .item{padding-left:0px;}
+.preparation .preparation-view .item .icon{position:static;margin:0px auto;text-align:center;padding-bottom:10px;}
+.preparation .preparation-view .item .icon img{max-width:100%;width:auto;display:inline-block;}
+.our-course .course-box .comment-row{text-align:center;}
+.our-course .course-box .comment-row .enroll-btn{float:none;}
+.student-reviews .student-box{padding:120px 15px 36px 15px;}
+.quck-nav{text-align:left;}
+.quck-nav .contact-no{width:49%;padding:0px;}
+.quck-nav .quck-right .right-link{padding:0px;width:49%;}
+.quck-nav .quck-right .right-link:last-child{padding:0px;}
+.inner-page .banner-img{min-height:150px;}
+.markets.our-course .section-title{padding-bottom:0;}
+.login-view .sosiyal-login a{padding-left:46px;}
+.quck-nav .quck-right{float:none;display:block;}
+.banner.home-banner .banner-text h1{font-size:21px;line-height:26px;}
+.banner.home-banner .banner-text p{font-size:14px; line-height:18px;}
+.banner.home-banner .learning-btn .btn{font-size:20px;}
+.banner.home-banner .search-box input[type="text"]{font-size:16px;}
+.banner.home-banner {padding: 180px 0px;}
+
+}
+/*=-=-=-=-=-=-=-=-=-=-=- Mobile Responsive styles end -=-=-=-=-=-=-=-=-=-=-=*/

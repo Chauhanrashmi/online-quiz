@@ -1,0 +1,225 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="admin_MasterPage" %>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <!-- Meta information -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <!-- Mobile Specific Metas -->
+      <!-- Title -->
+      <title>Quiz</title>
+      <!-- CSS Stylesheet -->
+      <link href="../css/bootstrap.css" rel="stylesheet">
+      <!-- bootstrap css -->
+      <link href="../css/owl.carousel.css" rel="stylesheet">
+      <!-- carousel Slider -->
+      <link href="../css/font-awesome.css" rel="stylesheet">
+      <!-- font awesome -->
+      <link href="../css/jquery.countdown.css" rel="stylesheet">
+      <!-- Countdown -->
+      <link href="../css/style.css" rel="stylesheet">
+      <!--  template structure css -->
+      <link href="../css/responsive.css" rel="stylesheet">
+      <!--  template structure css -->
+      <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:100,200,300,400,500,700,800,900%7CPT+Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+       <style type="text/css">
+           .auto-style1 {
+               position: relative;
+               float: right;
+               border-radius: 4px;
+               display: none;
+               border-style: none;
+               border-color: inherit;
+               border-width: medium;
+               margin-right: 0px;
+               margin-top: 10px;
+               margin-bottom: 0px;
+               padding: 9px 10px;
+               background-color: #02cbf7;
+               background-image: none;
+           }
+           .auto-style2 {
+               left: 42px;
+               top: -15px;
+           }
+           .auto-style3 {
+               left: 23px;
+               top: -18px;
+               margin-top: 0px;
+           }
+       </style>
+   </head>
+   <body class="loaded">
+      <div class="wapper">
+         <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+         </div>
+        
+         <header id="header" class="fiexd">
+            <div class="container">
+               <nav id="nav-main">
+                  <div class="navbar navbar-inverse">
+                     <div class="navbar-header">
+                        <a href="index.html" class="navbar-brand"><img src="../images/logo.png" alt=""></a>
+                        <button type="button" class="auto-style1" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                     </div>
+                     <!-- <div class="cart-box">
+                        <a href="javascript:void(0);"><i class="fa fa-shopping-basket"></i></a>
+                        </div> -->
+                     <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                           <li class="active">
+                              <a href="index.aspx">Home </a>
+                           </li>
+                           <li>
+                              <a href="frmcat.aspx">Category</a>
+                           </li>
+                           <li><a href="frmqst.aspx">Question Bank</a></li>
+						   <li><a href="logout.aspx">Logout</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+         </header>
+         <section class="banner inner-page">
+            <div class="banner-img"><img src="../images/quiz.jpg" alt=""></div>
+            <div class="page-title">
+               <div class="container">
+                  <h1>Quiz</h1>
+               </div>
+            </div>
+         </section>
+         <section class="breadcrumb white-bg">
+            <div class="container">
+               <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Quiz</a></li>
+               </ul>
+            </div>
+         </section>
+         <section class="quiz-view">
+             <form id="form1" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+             </form>
+            <%--<div class="container">
+               <div class="quiz-title">
+                  <h2>General Quiz</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+               </div>
+               <div class="row">
+                  <div class="col-sm-4 col-md-3">
+                     <div id="countdown"></div>
+                     <div class="qustion-list">
+                        <div class="qustion-slide fill">
+                           <div class="qustion-number">Question 1</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide active">
+                           <div class="qustion-number">Question 2</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 3</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 4</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 5</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 6</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 7</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 8</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 9</div>
+                           <span>2</span>
+                        </div>
+                        <div class="qustion-slide">
+                           <div class="qustion-number">Question 10</div>
+                           <span>2</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-8 col-md-9">
+                     <div class="qustion-main">
+                        <div class="qustion-box">
+                           <div class="qustion">Lorem Ipsum is simply dummy text of the printing and typesetting industry</div>
+                           <div class="ans">
+                              <div class="ans-slide">
+                                 <label class="label_radio" for="radio-01"><input name="sample-radio" id="radio-01" value="1" type="radio">simply dummy</label>
+                              </div>
+                              <div class="ans-slide">
+                                 <label class="label_radio" for="radio-02"><input name="sample-radio" id="radio-02" value="1" type="radio">Lorem Ipsum</label>
+                              </div>
+                              <div class="ans-slide">
+                                 <label class="label_radio" for="radio-03"><input name="sample-radio" id="radio-03" value="1" type="radio">typesetting industry</label>
+                              </div>
+                              <div class="ans-slide">
+                                 <label class="label_radio" for="radio-04"><input name="sample-radio" id="radio-04" value="1" type="radio">printing and typesetting industry</label>
+                              </div>
+                           </div>
+                           <div class="save-btn">
+                              <a href="#" class="btn2">Save Ans</a>
+                           </div>
+                           <div class="btn-slide">
+                              <a href="#" class="btn"><i class="fa fa-angle-left"></i></a>
+                              <a href="#" class="btn"><i class="fa fa-angle-right"></i></a>
+                           </div>
+                        </div>
+                        <div class="submit-quiz">
+                           <a href="quiz-result.html" class="btn">submit quiz</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>--%>
+         </section>
+         <footer id="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-8">
+                     <div class="copy-right">
+                        <p>Copyright © <span class="year">2018</span> QuizOnline.</p>
+                        <ul class="footer-link">
+                           <li class="auto-style3"><a href="javascript:void(0);">Terms and Conditions</a></li>
+                           <li class="auto-style2"><a href="javascript:void(0);">Privacy</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- Bootstrap core JavaScript
+         ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
+      <script type="text/javascript" src="../js/bootstrap.js"></script>
+      <script type="text/javascript" src="../js/owl.carousel.js"></script>
+      <script type="text/javascript" src="../js/jquery.form-validator.min.js"></script>
+      <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyAciPo9R0k3pzmKu6DKhGk6kipPnsTk5NU'></script>
+      <script type="text/javascript" src="../js/map-styleMain.js"></script>
+      <script type="text/javascript" src="../js/jquery.countdown.js"></script>
+      <script type="text/javascript" src="../js/countdown-script.js"></script>
+      <script type="text/javascript" src="../js/custom.js"></script>
+   </body>
+</html>
