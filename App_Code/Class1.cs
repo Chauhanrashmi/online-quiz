@@ -203,7 +203,7 @@ namespace nsquiz
     }
     public class clstbqst:clscon
     {
-        public void save_rec(clstbqstprp p)
+        public Int32 save_rec(clstbqstprp p)
         {
             if(con.State==ConnectionState.Closed)
             {
@@ -212,12 +212,15 @@ namespace nsquiz
             SqlCommand cmd = new SqlCommand("insqst",con);
             cmd.CommandType = CommandType.StoredProcedure;
            // cmd.Parameters.Add("@qstcode", SqlDbType.Int).Value = p.qstcode;
-            cmd.Parameters.Add("@qstdsc", SqlDbType.VarChar, 50).Value = p.qstdsc;
+            cmd.Parameters.Add("@qstdsc", SqlDbType.VarChar, 100).Value = p.qstdsc;
             cmd.Parameters.Add("@qstcacod", SqlDbType.Int).Value = p.qstcatcod;
             cmd.Parameters.Add("@qstlvl",SqlDbType.VarChar,50).Value=p.qstlvl;
+            cmd.Parameters.Add("@r", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
             cmd.ExecuteNonQuery();
+            Int32 a = Convert.ToInt32(cmd.Parameters["@r"].Value);
             cmd.Dispose();
             con.Close();
+            return a;
         }
         public void update_rec(clstbqstprp p)
         {
@@ -228,7 +231,7 @@ namespace nsquiz
             SqlCommand cmd = new SqlCommand("updateqst", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@qstcode", SqlDbType.Int).Value = p.qstcode;
-            cmd.Parameters.Add("@qstdsc", SqlDbType.VarChar, 50).Value = p.qstdsc;
+            cmd.Parameters.Add("@qstdsc", SqlDbType.VarChar, 100).Value = p.qstdsc;
             cmd.Parameters.Add("@qstcatcod", SqlDbType.Int).Value = p.qstcatcod;
             cmd.Parameters.Add("@qstlvl", SqlDbType.VarChar, 50).Value = p.qstlvl;
             cmd.ExecuteNonQuery();
@@ -339,11 +342,11 @@ namespace nsquiz
         {
             get
             {
-                return optqstcode;
+                return prvoptqstcode;
             }
             set
             {
-                optqstcode = value;
+                prvoptqstcode = value;
             }
         }
     }
@@ -416,15 +419,15 @@ namespace nsquiz
             con.Close();
             return obj;
         }
-        public List<clsoptprp> find_rec(Int32 optcode)
+        public List<clsoptprp> find_rec(Int32 qstcode)
         {
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
-            SqlCommand cmd = new SqlCommand("findopt", con);
+            SqlCommand cmd = new SqlCommand("findans", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@optcode", SqlDbType.Int).Value = optcode;
+            cmd.Parameters.Add("@qstcode", SqlDbType.Int).Value = qstcode;
             SqlDataReader dr = cmd.ExecuteReader();
             List<clsoptprp> obj = new List<clsoptprp>();
             while (dr.HasRows)

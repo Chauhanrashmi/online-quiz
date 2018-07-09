@@ -22,20 +22,25 @@
                 </strong></td>
         </tr>
         <tr>
-            <td style="width: 178px; font-size: large;"><strong>Question Description:</strong></td>
-            <td><strong>
+            <td style="width: 178px; font-size: large; height: 95px;"><strong>Question Description:</strong></td>
+            <td style="height: 95px"><strong>
                 <asp:TextBox ID="TextBox1" runat="server" Height="64px" TextMode="MultiLine" ValidateRequestMode="Disabled" Width="341px" style="font-size: large"></asp:TextBox>
                 <br style="font-size: large" />
                 <span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" style="font-size: large" />
-                <span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-                <asp:Button ID="Button2" runat="server" Text="Cancel" OnClick="Button2_Click" style="font-size: large" />
                 </strong></td>
         </tr>
         <tr>
             <td style="width: 178px; font-size: large;"><strong>Answer:</strong></td>
             <td>
                 <asp:TextBox ID="TextBox2" runat="server" Height="41px" Width="334px"></asp:TextBox>
+                <br />
+                <br />
+                <strong>
+                <span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                <asp:Button ID="Button3" runat="server" OnClick="Button1_Click" Text="Submit" style="font-size: large" />
+                <span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                <asp:Button ID="Button4" runat="server" Text="Cancel" OnClick="Button2_Click" style="font-size: large" />
+                </strong>
             </td>
         </tr>
     </table>

@@ -22,7 +22,7 @@
                 <strong>
                 <br />
                 <br />
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="62px" style="font-size: x-large" Width="182px">
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="62px" style="font-size: x-large" Width="182px" AutoPostBack="True">
                     <asp:ListItem Value="B">Beginer</asp:ListItem>
                     <asp:ListItem Value="I">Intermediate</asp:ListItem>
                     <asp:ListItem Value="E">Expert</asp:ListItem>

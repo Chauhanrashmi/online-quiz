@@ -21,8 +21,15 @@ public partial class admin_Default : System.Web.UI.Page
         objprp.qstcatcod = Convert.ToInt32(DropDownList1.SelectedValue);
         objprp.qstlvl = DropDownList2.SelectedValue;
         objprp.qstdsc = TextBox1.Text;
-        obj.save_rec(objprp);
+       // obj.save_rec(objprp);
+        Int32 a = obj.save_rec(objprp);
+       
         //code for answer
+        nsquiz.clsopt obj1 = new nsquiz.clsopt();
+        nsquiz.clsoptprp objprp1 = new nsquiz.clsoptprp();
+        objprp1.optqstcode = a;
+        objprp1.optdsc = TextBox2.Text;
+        obj1.save_rec(objprp1);
         Response.Redirect("frmqst.aspx");
     }
 
