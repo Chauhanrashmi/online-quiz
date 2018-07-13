@@ -430,7 +430,7 @@ namespace nsquiz
             cmd.Parameters.Add("@qstcode", SqlDbType.Int).Value = qstcode;
             SqlDataReader dr = cmd.ExecuteReader();
             List<clsoptprp> obj = new List<clsoptprp>();
-            while (dr.HasRows)
+           if(dr.HasRows)
             {
                 dr.Read();
                 clsoptprp k = new clsoptprp();

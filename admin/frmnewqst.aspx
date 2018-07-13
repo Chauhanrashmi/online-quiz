@@ -7,23 +7,27 @@
         <tr>
             <td style="width: 178px; font-size: large;"><strong>Select Category:</strong></td>
             <td><strong>
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="catnam" DataValueField="catcod" Height="18px" Width="155px" style="font-size: large">
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="catnam" DataValueField="catcod" Height="61px" Width="329px" style="font-size: large">
                 </asp:DropDownList>
+                <br />
                 </strong></td>
         </tr>
         <tr>
             <td style="width: 178px; font-size: large;"><strong>Select Level:</strong></td>
             <td><strong>
-                <asp:DropDownList ID="DropDownList2" runat="server" style="font-size: large" Width="156px">
+                <br />
+                <asp:DropDownList ID="DropDownList2" runat="server" style="font-size: large" Width="333px" Height="61px">
                     <asp:ListItem Value="B">Beginer</asp:ListItem>
                     <asp:ListItem Value="I">Intermediate</asp:ListItem>
                     <asp:ListItem Value="E">Expert</asp:ListItem>
                 </asp:DropDownList>
+                <br />
                 </strong></td>
         </tr>
         <tr>
             <td style="width: 178px; font-size: large; height: 95px;"><strong>Question Description:</strong></td>
             <td style="height: 95px"><strong>
+                <br />
                 <asp:TextBox ID="TextBox1" runat="server" Height="64px" TextMode="MultiLine" ValidateRequestMode="Disabled" Width="341px" style="font-size: large"></asp:TextBox>
                 <br style="font-size: large" />
                 <span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>

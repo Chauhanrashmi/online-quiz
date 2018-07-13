@@ -8,7 +8,8 @@
         <tr>
             <td class="modal-sm" style="width: 211px; font-size: large"><strong>Category:</strong></td>
             <td style="width: 732px"><strong>
-                <asp:TextBox ID="TextBox1" runat="server" Height="23px" style="font-size: large" Width="310px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Height="38px" style="font-size: large" Width="414px"></asp:TextBox>
+                <br />
                 </strong></td>
         </tr>
         <tr>
@@ -21,18 +22,20 @@
         </tr>
         <tr>
             <td colspan="2" style="font-size: large">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" Height="160px" Width="835px" DataKeyNames="catcod" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating">
-                    <Columns>
-                        <asp:BoundField DataField="catnam" HeaderText="catnam" SortExpression="catnam" />
-                        <asp:CommandField ShowEditButton="True" />
-                        <asp:CommandField ShowDeleteButton="True" />
-                    </Columns>
-                </asp:GridView>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="disp_rec" TypeName="nsquiz.clscat"></asp:ObjectDataSource>
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" Height="253px" Width="887px" DataKeyNames="catcod" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating">
+                    <Columns>
+                        <asp:BoundField DataField="catnam" HeaderText="Category" SortExpression="catnam" />
+                        <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" />
+                    </Columns>
+                </asp:GridView>
+                <br />
+                <br />
             </td>
         </tr>
     </table>

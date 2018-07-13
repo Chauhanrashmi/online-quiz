@@ -21,17 +21,18 @@ public partial class _Default : System.Web.UI.Page
                 nsquiz.clstbqst obj = new nsquiz.clstbqst();
                 List<nsquiz.clstbqstprp> k = obj.disp_rec(Convert.ToInt32(Session["ccod"]), Session["lvl"].ToString());
                 DataTable tb = new DataTable();
-                tb.Columns.Add(new DataColumn("qstcode", Type.GetType("System.ToInt32")));
+                tb.Columns.Add(new DataColumn("qstcode", Type.GetType("System.Int32")));
                 tb.Columns.Add(new DataColumn("qstdsc", Type.GetType("System.String")));
                 //tb.Columns.Add(new DataColumn("optcod", Type.GetType("System.ToInt32")));
-                for (int i = 0; i < 10; i++)
+                List<String> arr = new List<String>();
+                for (int i = 0; i < 5; i++)
                 {
                     Random rnd = new Random();
                     int idx = rnd.Next(0, k.Count);
                     int flag = 0;
                     for (int t = 0; t < tb.Rows.Count; t++)
                     {
-                        if (Convert.ToInt32(tb.Rows[t]["qstcode"]) == (k[idx].qstcode))
+                        if (Convert.ToInt32(tb.Rows[t]["qstcode"]) == Convert.ToInt32(k[idx].qstcode))
                         {
                             flag = 1;
                             break;
@@ -46,11 +47,12 @@ public partial class _Default : System.Web.UI.Page
                     r[0] = k[idx].qstcode;
                     r[1] = k[idx].qstdsc;
                     //add option
-                    List<String> arr = new List<string>();
+                    // List<String> arr = new List<string>();
                     nsquiz.clsopt obj1 = new nsquiz.clsopt();
                     List<nsquiz.clsoptprp> kt = obj1.find_rec(k[idx].qstcode);
                     arr.Add(kt[0].optdsc);
                     tb.Rows.Add(r);
+                }
                     //display paper to user
                     for (int j = 0; j < arr.Count; j++)
                     {
@@ -66,14 +68,21 @@ public partial class _Default : System.Web.UI.Page
                     GridView1.DataBind();
                     DataList1.DataSource = arr;
                     DataList1.DataBind();
-                }
+                
             }
         }
     }
 
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
+        //GridView1.PageIndex = e.NewPageIndex;
+        //GridView1.DataBind();
+
+        if (e.NewPageIndex == 0)
+            Response.Redirect("index.aspx");
         GridView1.PageIndex = e.NewPageIndex;
+        DataTable tb = (DataTable)(ViewState["ppr"]);
+        GridView1.DataSource = tb;
         GridView1.DataBind();
     }
 
@@ -86,7 +95,7 @@ public partial class _Default : System.Web.UI.Page
         List<nsquiz.clsoptprp> k = obj.find_rec(qstcode);
         if (k[0].optdsc.Equals(s))
         {
-            Int32 total = Convert.ToInt32(Label2) + 1;
+            Int32 total = Convert.ToInt32(Label2.Text) + 1;
             Label2.Text = total.ToString();
         }
     }

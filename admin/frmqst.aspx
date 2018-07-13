@@ -9,7 +9,7 @@
             <td style="width: 250px; height: 61px;">
                 <strong>
                 <br />
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="catnam" DataValueField="catcod" Height="65px" style="font-size: x-large" Width="182px">
+                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="catnam" DataValueField="catcod" Height="75px" style="font-size: x-large" Width="258px">
                 </asp:DropDownList>
                 <br />
                 <br />
@@ -22,7 +22,7 @@
                 <strong>
                 <br />
                 <br />
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="62px" style="font-size: x-large" Width="182px" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="70px" style="font-size: x-large" Width="259px" AutoPostBack="True">
                     <asp:ListItem Value="B">Beginer</asp:ListItem>
                     <asp:ListItem Value="I">Intermediate</asp:ListItem>
                     <asp:ListItem Value="E">Expert</asp:ListItem>
