@@ -522,6 +522,15 @@ namespace nsquiz
     }
     public class clsrec:clscon
     {
+        public DataSet dsprec(String eml)
+        {
+            SqlDataAdapter adp = new SqlDataAdapter("dsprec",con);
+            adp.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adp.SelectCommand.Parameters.Add("@eml", SqlDbType.VarChar, 100).Value = eml;
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
+            return ds;
+        }
         public void save_rec(clsrecprp p)
         {
             if (con.State == ConnectionState.Closed)

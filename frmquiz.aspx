@@ -2,15 +2,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
+    <script lang="javascript">
+        function reFresh() {
+            document.getElementById("ContentPlaceHolder1_Button1").click();
+        }
+        window.setInterval("reFresh()", 100);
+  </script>
     <p>
         &nbsp;<br />
         <div class="text-left">
             <strong><span class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             Score:-
-            <asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
-            /10</span></strong><br />
+            </span>
+            <asp:Label ID="Label4" runat="server" Text="0"></asp:Label>
+            /6</strong><br />
         </div>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="131px" PageSize="1" ShowHeader="False" Width="1297px" DataKeyNames="qstcode" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Height="131px" PageSize="1" ShowHeader="False" Width="1281px" DataKeyNames="qstcode" OnPageIndexChanging="GridView1_PageIndexChanging" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
             
             <Columns>
                 <asp:TemplateField>
@@ -30,11 +37,23 @@
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+<br />
+<asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
+        <asp:Timer ID="lbltim" runat="server" Interval="1000" OnTick="Timer1_Tick">
+        </asp:Timer>
+        <asp:Label ID="Label3" runat="server" CssClass="auto-style1" style="font-size: x-large" Text="30"></asp:Label>
+        &nbsp;seconds remaining
+    </ContentTemplate>
+</asp:UpdatePanel>
+<br />
     </p>
     <p>
-        <asp:DataList ID="DataList1" runat="server" RepeatColumns="1" Height="315px" OnEditCommand="DataList1_EditCommand" Width="1276px" style="margin-right: 0px">
+        <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" Height="244px" OnEditCommand="DataList1_EditCommand" Width="1150px" style="margin-right: 0px; margin-left: 137px;" BorderColor="#660033" Font-Bold="True" ForeColor="Black">
             <ItemTemplate>
-                <asp:Button ID="Button1" runat="server" CommandName="Edit" Text=<%# Container.DataItem%> />
+                <asp:Button ID="Button1"  runat="server" CommandName="Edit" Text='<%#Container.DataItem %>' CommandArgument=<%# Container.DataItem %> />
             
                 <%--<asp:CheckBox ID="CheckBox1" runat="server" Text=<%# Container.DataItem %> OnCheckedChanged="Page_Load" AutoPostBack="true"/>
             --%>
@@ -46,7 +65,8 @@
 
         </asp:DataList>
     </p>
-    <p>
+    <p class="text-center">
+        <asp:Button ID="Button2" runat="server" Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Size="Large" ForeColor="#0066FF" Height="43px" OnClick="Button2_Click" Text="Finish Test" Width="379px" />
     </p>
     <p>
     </p>

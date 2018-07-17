@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
                 tb.Columns.Add(new DataColumn("qstdsc", Type.GetType("System.String")));
                 //tb.Columns.Add(new DataColumn("optcod", Type.GetType("System.ToInt32")));
                 List<String> arr = new List<String>();
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     Random rnd = new Random();
                     int idx = rnd.Next(0, k.Count);
@@ -79,24 +79,53 @@ public partial class _Default : System.Web.UI.Page
         //GridView1.DataBind();
 
         if (e.NewPageIndex == 0)
+        {
             Response.Redirect("index.aspx");
-        GridView1.PageIndex = e.NewPageIndex;
+        }
+        else
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            DataTable tb = (DataTable)(ViewState["ppr"]);
+            GridView1.DataSource = tb;
+            GridView1.DataBind();
+        }
+    }
+
+    protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)
+    {
+        Int32 a = GridView1.PageIndex;
+        String s;
+        s = e.CommandArgument.ToString();
+        Int32 qstcode = Convert.ToInt32(GridView1.DataKeys[0][0]);
+        nsquiz.clsopt obj = new nsquiz.clsopt();
+        List<nsquiz.clsoptprp> k = obj.find_rec(qstcode);
+        if (k[0].optdsc.Equals(s))
+        {
+            Int32 total = Convert.ToInt32(Label4.Text) + 1;
+            Label4.Text = total.ToString();
+        }
+        GridView1.PageIndex = a + 1;
         DataTable tb = (DataTable)(ViewState["ppr"]);
         GridView1.DataSource = tb;
         GridView1.DataBind();
     }
 
-    protected void DataList1_EditCommand(object source, DataListCommandEventArgs e)
+    protected void Button2_Click(object sender, EventArgs e)
     {
-        String s;
-        s = e.CommandArgument.ToString();
-        Int32 qstcode = Convert.ToInt32(GridView1.SelectedDataKey);
-        nsquiz.clsopt obj = new nsquiz.clsopt();
-        List<nsquiz.clsoptprp> k = obj.find_rec(qstcode);
-        if (k[0].optdsc.Equals(s))
-        {
-            Int32 total = Convert.ToInt32(Label2.Text) + 1;
-            Label2.Text = total.ToString();
-        }
+        nsquiz.clsrec obj = new nsquiz.clsrec();
+        nsquiz.clsrecprp objprp = new nsquiz.clsrecprp();
+        objprp.reccatcode = Convert.ToInt32(Session["ccod"]);
+        objprp.recdate = DateTime.Now;
+        objprp.recscore = Convert.ToInt32(Label4.Text);
+        objprp.recusreml = Session["eml"].ToString();
+        obj.save_rec(objprp);
+        Session["ccod"] = null;
+        Session["lvl"] = null;
+        Response.Redirect("frmhis.aspx");
+    }
+
+    protected void Timer1_Tick(object sender, EventArgs e)
+    {
+         Label3.Text= (Convert.ToInt32(Label3.Text)-1).ToString();
     }
 }
