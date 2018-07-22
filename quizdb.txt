@@ -1,0 +1,242 @@
+go 
+CREATE TABLE [dbo].[tbcat] (
+    [catcod] INT          IDENTITY (1, 1) NOT NULL,
+    [catnam] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([catcod] ASC)
+);
+
+go
+CREATE TABLE [dbo].[tbqst] (
+    [qstcode]  INT           IDENTITY (1, 1) NOT NULL,
+    [qstdsc]   VARCHAR (100) NULL,
+    [qstcacod] INT           NULL,
+    [qstlvl]   VARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([qstcode] ASC),
+    CONSTRAINT [FK_tbqst_tbcat] FOREIGN KEY ([qstcacod]) REFERENCES [dbo].[tbcat] ([catcod])
+);
+
+go
+CREATE TABLE [dbo].[tbopt] (
+    [optcode]    INT          IDENTITY (1, 1) NOT NULL,
+    [optdsc]     VARCHAR (50) NULL,
+    [optqstcode] INT          NULL,
+    PRIMARY KEY CLUSTERED ([optcode] ASC),
+    CONSTRAINT [FK_tbopt_tbqst] FOREIGN KEY ([optqstcode]) REFERENCES [dbo].[tbqst] ([qstcode])
+);
+
+go
+CREATE TABLE [dbo].[tbrec] (
+    [reccode]    INT          IDENTITY (1, 1) NOT NULL,
+    [recdate]    DATETIME     NULL,
+    [reccatcode] INT          NULL,
+    [recscore]   INT          NULL,
+    [recusreml]  VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([reccode] ASC),
+    CONSTRAINT [FK_tbrec_tbopt] FOREIGN KEY ([reccatcode]) REFERENCES [dbo].[tbopt] ([optcode])
+);
+
+go
+CREATE TABLE [dbo].[tbuser] (
+    [uname] VARCHAR (50) NOT NULL,
+    [upass] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([uname] ASC)
+);
+
+go
+CREATE PROCEDURE delcat
+	@catcod int
+AS
+	delete from tbcat where catcod=@catcod
+RETURN 0
+
+go
+CREATE PROCEDURE delopt
+	@optcode int
+AS
+	delete from tbopt where optcode=@optcode
+RETURN 0
+
+go
+CREATE PROCEDURE delqst
+	@qstcode int
+AS
+	delete from tbqst where qstcode=@qstcode
+RETURN 0
+
+go
+CREATE PROCEDURE delrec
+	@reccode int
+AS
+	delete from tbrec where reccode=@reccode
+RETURN 0
+
+go
+CREATE PROCEDURE dsprec
+	@eml varchar(100)
+AS
+	SELECT recdate as Quizdate,recscore as Score,catnam as Category from tbrec,tbcat where reccatcode=catcod and recusreml=@eml order by recdate desc;
+RETURN 0
+
+go
+CREATE PROCEDURE disprec
+	@reccode int
+AS
+	SELECT * from tbrec 
+RETURN 0
+
+go
+CREATE PROCEDURE dispqst
+	@catcod int,
+	@lvl varchar(50)
+AS
+	SELECT *from tbqst  where qstcacod=@catcod and qstlvl=@lvl
+RETURN 0
+
+go
+CREATE PROCEDURE dispqst
+	@catcod int,
+	@lvl varchar(50)
+AS
+	SELECT *from tbqst  where qstcacod=@catcod and qstlvl=@lvl
+RETURN 0
+
+go
+CREATE PROCEDURE dispopt
+	@optcode int
+AS
+	SELECT * from tbopt
+RETURN 0
+
+go
+CREATE PROCEDURE displcat
+	
+AS
+	SELECT * from tbcat
+RETURN 0
+
+go
+CREATE PROCEDURE findrec
+	@reccode int
+AS
+	SELECT * from tbrec where reccode=@reccode
+RETURN 0
+
+go
+CREATE PROCEDURE findqst
+	@qstcode int
+AS
+	SELECT * from tbqst where qstcode=@qstcode
+RETURN 0
+
+go
+CREATE PROCEDURE findopt
+	@param1 int = 0,
+	@param2 int
+AS
+	SELECT @param1, @param2
+RETURN 0
+
+go
+CREATE PROCEDURE findcat
+	
+	@catcod int
+AS
+	SELECT * from tbcat where catcod=@catcod
+RETURN 0
+
+go
+CREATE PROCEDURE findans
+	@qstcode int
+AS
+	SELECT * from tbopt where optqstcode=@qstcode
+RETURN 0
+
+go
+CREATE PROCEDURE insrec
+    @recdate datetime,
+	@reccatcode int,
+	@recscore int,
+	@recusreml varchar(50)
+AS
+	insert tbrec values(@recdate,@reccatcode,@recscore,@recusreml)
+RETURN 0
+
+go
+CREATE PROCEDURE insqst
+	@qstdsc varchar(100),
+	@qstcacod int,
+	@qstlvl varchar(50)
+AS
+    declare @r int
+	insert tbqst values(@qstdsc,@qstcacod,@qstlvl)
+	select @r=@@identity
+RETURN @r
+
+go
+CREATE PROCEDURE insopt
+	@optdsc varchar(50),
+	@optqstcode int
+AS
+	insert tbopt values(@optdsc,@optqstcode)
+RETURN 0
+
+go
+CREATE PROCEDURE inscat
+	@catnam varchar(50)
+AS
+	insert tbcat values(@catnam)
+RETURN 0
+
+go
+CREATE PROCEDURE updaterec
+    @reccode int,
+    @recdate datetime,
+	@reccatcode int,
+	@recscore int,
+	@recusreml varchar(50)
+AS
+	update tbrec set recdate=@recdate,reccatcode=@reccatcode,recscore=@recscore,recusreml=@recusreml where reccode=@reccode
+RETURN 0
+
+go
+CREATE PROCEDURE updateqst
+	@qstcode int,
+	@qstdsc varchar(50),
+	@qstcatcod int,
+	@qstlvl varchar(50)
+AS
+	update tbqst set qstdsc=@qstdsc, qstcacod=@qstcatcod, qstlvl=@qstlvl where qstcode=@qstcode
+RETURN 0
+
+go
+CREATE PROCEDURE updateopt
+	@optcode int ,
+	@optdsc varchar(50),
+	@optqstcode int
+AS
+	update tbopt set optdsc=@optdsc,optqstcode=@optqstcode where optcode=@optcode
+RETURN 0
+
+go
+CREATE PROCEDURE updatecat
+	@catcod int,
+	@catnam varchar(50)
+AS
+	update tbcat set catnam=@catnam where catcod=@catcod
+
+go
+CREATE PROCEDURE logincheck
+	@un varchar(50),
+	@up varchar(50)
+AS 
+  declare @ap varchar(50)
+  select @ap=upass from tbuser 
+     where uname=@un
+
+  if @ap is null
+      return -1
+  else
+    if @ap =@up
+      return 1
+    else
+     return -2

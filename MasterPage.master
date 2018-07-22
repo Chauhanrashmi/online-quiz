@@ -121,7 +121,7 @@
 
                              <li><a href="Signup.aspx">Sign Up</a></li>
 
-                          <li><a href="login.aspx">Login</a></li>
+                          <li><a href="login.aspx">Admin</a></li>
 
 					 </ul>
 
@@ -217,7 +217,7 @@
 
         </form>
 
-         <footer id="footer">
+         <footer id="footer" class="fiexd">
 
             <div class="container">
 

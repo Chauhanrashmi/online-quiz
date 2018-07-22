@@ -544,6 +544,7 @@ namespace nsquiz
             cmd.Parameters.Add("@reccatcode", SqlDbType.Int).Value = p.reccatcode;
             cmd.Parameters.Add("@recscore", SqlDbType.Int).Value = p.recscore;
             cmd.Parameters.Add("@recusreml",SqlDbType.VarChar,50).Value=p.recusreml;
+           // cmd.Parameters.Add("@recusrpass", SqlDbType.VarChar, 50).Value = p.recusrpass;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
